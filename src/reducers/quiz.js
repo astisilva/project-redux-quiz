@@ -4,18 +4,43 @@ import { createSlice } from "@reduxjs/toolkit";
 const questions = [
   {
     id: 1,
-    questionText: "Who set the Olympic record for the 100m dash in 2012?",
-    options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
+    questionText: "What is the name of the little mermaid in the Disney movie?",
+    options: ["Ariel", "Chloe", "Seven", "Blue"],
     correctAnswerIndex: 0
   },
   {
     id: 2,
     questionText:
-      "When was Michael Phelps last named male World Swimmer of the Year?",
-    options: ["2012", "2014", "2016", "2018"],
+      "What is the name of the toy cowboy in the movie “Toy Story?",
+    options: ["Pluto", "Mickey", "Woody", "Harry"],
     correctAnswerIndex: 2
-  }
-];
+  },
+
+  {
+    id: 3,
+    questionText:
+      "What was the name of the group Justin Timberlake used to be part of?",
+    options: ["Backstreet boys", "N’ SYNC", "Five", "NKOTB"],
+    correctAnswerIndex: 1
+  },
+
+  {
+    id: 4,
+    questionText:
+      "Who is often referred to as the “King of Pop” and is known for iconic hits like “Thriller” and “Billie Jean”?",
+    options: ["Boy George", "Prince", "Stevie Wonder", "Michael Jackson"],
+    correctAnswerIndex: 3
+  },
+
+  {
+    id: 5,
+    questionText:
+      "What’s the name of the paradise warriors go to after death?",
+    options: ["Valhalla", "Mars", "Egypt", "Vasa"],
+    correctAnswerIndex: 0
+  },
+  ];
+
 
 const initialState = {
   questions,
@@ -46,7 +71,7 @@ export const quiz = createSlice({
     submitAnswer: (state, action) => {
       const { questionId, answerIndex } = action.payload;
       const question = state.questions.find((q) => q.id === questionId);
-
+ho
       if (!question) {
         throw new Error(
           "Could not find question! Check to make sure you are passing the question id correctly."
@@ -66,6 +91,8 @@ export const quiz = createSlice({
         answer: question.options[answerIndex],
         isCorrect: question.correctAnswerIndex === answerIndex
       });
+
+       
     },
 
     /**
